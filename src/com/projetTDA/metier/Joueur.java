@@ -1,3 +1,4 @@
+package com.projetTDA.metier;
 
 public class Joueur {
 	
@@ -61,7 +62,7 @@ public class Joueur {
 		sb.append(this.pseudo);
 		sb.append("|");
 		sb.append(this.avatar);
-		sb.append("|");
+		
 		
 		return sb.toString();
 		

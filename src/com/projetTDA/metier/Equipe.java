@@ -1,3 +1,4 @@
+package com.projetTDA.metier;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class Equipe {
 
 	public Equipe() {
 		super();
-		this.liste_joueur=new ArrayList<>();
+		this.liste_joueur=new ArrayList<Joueur>();
 	}
 
 
