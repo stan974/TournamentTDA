@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">TournamentBuilder</string>
+    <string name="app_name">Tournament Builder</string>
     <string name="hello_world">Hello world!</string>
+    <string name="kill">Kill THem All!!!</string>
     <string name="action_settings">Settings</string>
 
 </resources>
