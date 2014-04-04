@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tournament Builder</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="kill">Kill THem All!!!</string>
-    <string name="action_settings">Settings</string>
+    <!-- ecran 1 -->    
+    <string name="app_name">Tournament Builder 2014</string>
+	    <string name="gerer_joueur">Gestion de joueurs</string>
+	    
+	    		<string name="creer_joueur">Créer un joueur</string>
+	    		<string name="title_creer_joueur">Création de joueurs</string>
+	    		
+    			<string name="modifier_joueur">Modifier un joueur</string>
+    			<string name="title_modifier_joueur">Modification de joueurs</string>
+    			
+        <string name="gerer_tournoi">Gestion de tournois</string>
+        <string name="statistique">Statistiques</string>
+        
+      
+        
+       <!-- création de joueur --> 
+    <string name="pseudo">Veuillez entrer votre pseudo : </string>
+    <string name="pseudoHint">Tapez votre pseudo</string>
+    <string name="boutonEnvoyer">envoyer</string>
+        
+    
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="image_content_description">Un Android avec un chien</string>
 
+    <string name="action_settings">Settings</string>
+    
 </resources>
