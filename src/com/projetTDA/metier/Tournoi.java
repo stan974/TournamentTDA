@@ -22,48 +22,39 @@ public class Tournoi {
 		this.liste_matchs = liste_matchs;
 	}
 
-
 	public Tournoi() {
 		super();
 		
 		this.liste_matchs=new ArrayList<Match>();
 	}
 
-
 	public String getNom_tournoi() {
 		return nom_tournoi;
 	}
-
 
 	public void setNom_tournoi(String nom_tournoi) {
 		this.nom_tournoi = nom_tournoi;
 	}
 
-
 	public String getDate_creation() {
 		return date_creation;
 	}
-
 
 	public void setDate_creation(String date_creation) {
 		this.date_creation = date_creation;
 	}
 
-
 	public String getLib_sport() {
 		return lib_sport;
 	}
-
 
 	public void setLib_sport(String lib_sport) {
 		this.lib_sport = lib_sport;
 	}
 
-
 	public HashMap<Integer, Equipe> getClassement() {
 		return classement;
 	}
-
 
 	public void setClassement(HashMap<Integer, Equipe> classement) {
 		this.classement = classement;
@@ -89,11 +80,7 @@ public class Tournoi {
 		sb.append(this.liste_matchs);
 
 		
-		return sb.toString();
-	
+		return sb.toString();	
 	}
-
-	
-	
 	
 }

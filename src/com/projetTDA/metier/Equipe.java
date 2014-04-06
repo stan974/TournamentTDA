@@ -20,7 +20,7 @@ public class Equipe {
 
 	public Equipe() {
 		super();
-		this.liste_joueur=new ArrayList<Joueur>();
+		this.liste_joueur = new ArrayList<Joueur>();
 	}
 
 
@@ -56,17 +56,10 @@ public class Equipe {
 
 		for (Joueur j : liste_joueur)			
 		{
-			sb.append("\n\t").append(j);
-			
+			sb.append("\n\t").append(j);			
 		}
 		
-		return sb.toString();
-		
-	}
-	
-	
-
-	
-	
+		return sb.toString();		
+	}	
 	
 }
