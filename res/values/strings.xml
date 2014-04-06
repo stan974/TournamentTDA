@@ -7,11 +7,18 @@
 	    
 	    		<string name="creer_joueur">Créer un joueur</string>
 	    		<string name="title_creer_joueur">Création de joueurs</string>
+	    		<string name="boutonAvatar">Avatar</string>
+	    			    		
 	    		
-    			<string name="modifier_joueur">Modifier un joueur</string>
+    			<string name="modifier_joueur">Modifier un joueur</string>    			
     			<string name="title_modifier_joueur">Modification de joueurs</string>
     			
+    			<string name="lister_joueurs">Lister les joueurs</string>    			
+    			<string name="title_lister_joueurs">Liste des joueurs</string>
+    			
         <string name="gerer_tournoi">Gestion de tournois</string>
+        		<string name="creer_tournoi">Créer un tournoi</string>
+        		<string name="tournoi_encours">Gestion des tournois en cours</string>
         <string name="statistique">Statistiques</string>
         
       
@@ -24,7 +31,6 @@
     
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
-    <string name="image_content_description">Un Android avec un chien</string>
 
     <string name="action_settings">Settings</string>
     

@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="#efebef">
 
     <ImageView
         android:id="@+id/logo_picture"
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/normal_padding"
         android:src="@drawable/logo_accueil"
-		/>
+        android:background="@android:color/transparent"/>
     
    <!-- <TextView
         android:layout_width="wrap_content"

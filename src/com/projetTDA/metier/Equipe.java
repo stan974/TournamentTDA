@@ -7,16 +7,30 @@ public class Equipe {
 
 	private int id_equipe;
 	private String nom_equipe;
-	private List<Joueur> liste_joueur;
+	private ArrayList<Joueur> liste_joueur;
 	
 	
-	public Equipe(int id_equipe, String nom_equipe, List<Joueur> liste_joueur) {
+	public Equipe(int id_equipe, String nom_equipe, ArrayList<Joueur> liste_joueur) {
 		super();
 		this.id_equipe = id_equipe;
 		this.nom_equipe = nom_equipe;
 		this.liste_joueur = liste_joueur;
 	}
 
+	public Equipe(int id_equipe, String nom_equipe) {
+		super();
+		this.id_equipe = id_equipe;
+		this.nom_equipe = nom_equipe;
+		this.liste_joueur = new ArrayList<Joueur>();
+	}
+
+	public ArrayList<Joueur> getListe_joueur() {
+		return liste_joueur;
+	}
+
+	public void setListe_joueur(ArrayList<Joueur> liste_joueur) {
+		this.liste_joueur = liste_joueur;
+	}
 
 	public Equipe() {
 		super();
@@ -64,8 +78,10 @@ public class Equipe {
 		
 	}
 	
-	
-
+	public void ajoutJoueur(Joueur newJoueur) {
+		liste_joueur.add(newJoueur);
+		System.out.println("Joueur " + newJoueur.getPseudo() + " ajouté avec succès à l'équipe : " + this.nom_equipe);
+	}
 	
 	
 	

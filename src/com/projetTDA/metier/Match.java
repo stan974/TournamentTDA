@@ -16,6 +16,14 @@ public class Match {
 		this.score1 = score1;
 		this.score2 = score2;
 	}
+	
+	public Match(Equipe equipe1, Equipe equipe2) {
+		super();
+		this.equipe1 = equipe1;
+		this.equipe2 = equipe2;
+		this.score1 = 0;
+		this.score2 = 0;
+	}
 
 
 
