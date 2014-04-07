@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+ 	<!-- android:id permet d'attribuer un id à l'élement
+ 	    android:layout_width définit le remplissage de l'élement en largeur
+ 	    android:layout_height définit le remplissage de l'élement en hauteur
+ 	    fill_parent : prend toute la place en largeur ou hauteur
+ 	    wrap_content : prend juste la place nécessaire
+     -->
+     <ListView
+      android:id="@+id/listJoueurs"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:choiceMode="singleChoice" >
+      
+    </ListView>
+     
+</LinearLayout>
+
+
+<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+ 
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="20px"
+        android:layout_marginTop="5px"
+        android:src="@drawable/ic_launcher" >
+    </ImageView>
+ 
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@+id/label"
+        android:textSize="30px" >
+    </TextView>
+ 
+</LinearLayout> -->

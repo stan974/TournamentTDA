@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+ 	<!-- android:id permet d'attribuer un id à l'élement -->
+ 	    <!-- android:layout_width définit le remplissage de l'élement en largeur -->
+ 	    <!-- android:layout_height définit le remplissage de l'élement en hauteur -->
+ 	    <!-- fill_parent : prend toute la place en largeur ou hauteur -->
+ 	    <!-- wrap_content : prend juste la place nécessaire -->
+	<Button
+	        android:id="@+id/creerTournoiButton"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_gravity="center"
+	        android:layout_marginTop="@dimen/small_padding"
+	        android:text="@string/creer_tournoi" />
+	     
+</LinearLayout>

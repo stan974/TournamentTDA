@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.projetTDA.tournamentbuilder"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/tournament_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+       <activity
+            android:name="com.projetTDA.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.projetTDA.joueur.CreerJoueur"
+            android:label="@string/title_creer_joueur" >
+        </activity>
+        <activity
+            android:name="com.projetTDA.joueur.GererJoueur"
+            android:label="@string/gerer_joueur" >
+        </activity>
+        <activity
+            android:name="com.projetTDA.tournoi.GererTournoi"
+            android:label="@string/gerer_tournoi" >
+        </activity>
+        <activity
+            android:name="com.projetTDA.statistique.Statistique"
+            android:label="@string/statistique" >
+        </activity>
+        <activity
+            android:name="com.projetTDA.tournoi.CreerTournoi"
+            android:label="@string/creer_tournoi" >
+        </activity>
+       
+        <activity
+            android:name="com.projetTDA.joueur.ListerJoueurs"
+            android:label="@string/lister_joueurs" >
+        </activity>
+        
+        <activity
+            android:name="com.projetTDA.joueur.ModifierJoueur"
+            android:label="@string/modifier_joueur" >
+        </activity>
+    </application>
+
+</manifest>
