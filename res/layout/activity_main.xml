@@ -12,44 +12,35 @@
         android:src="@drawable/logo_accueil"
         android:background="@android:color/transparent"/>
     
-   <!-- <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="@dimen/normal_padding"
-        android:text="@string/email"
-        android:textSize="@dimen/normal_text_size"
-        android:textColor="@color/black_color" />
 
-    <EditText
-        android:id="@+id/user_email"
-        android:layout_width="@dimen/large_padding"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:layout_gravity="center" />
- --> 
     <Button
-        android:id="@+id/gererTournoiButton"
+        android:id="@+id/BTN_gererTournoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginLeft="@dimen/normal_padding"
+        android:layout_marginRight="@dimen/normal_padding"
         android:text="@string/gerer_tournoi" />
     
     <Button
-        android:id="@+id/gererJoueurButton"
+        android:id="@+id/BTN_gererJoueur"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginLeft="@dimen/normal_padding"
+        android:layout_marginRight="@dimen/normal_padding"
         android:text="@string/gerer_joueur" />
     
      <Button
-        android:id="@+id/statistiqueButton"
+        android:id="@+id/BTN_statistiques"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginLeft="@dimen/normal_padding"
+        android:layout_marginRight="@dimen/normal_padding"
         android:text="@string/statistique" />
     
 

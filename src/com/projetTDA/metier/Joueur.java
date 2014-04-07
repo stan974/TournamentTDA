@@ -64,9 +64,7 @@ public class Joueur {
 		sb.append(this.avatar);
 		
 		
-		return sb.toString();
-		
+		return sb.toString();		
 	}
 	
-
 }

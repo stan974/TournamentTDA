@@ -25,39 +25,42 @@ import com.projetTDA.tournoi.GererTournoi;
 
 public class MainActivity extends ActionBarActivity {
 //	private TextView texte = null;
+	Button mBTN_gererTournoi = null;
+	Button mBTN_gererJoueur  = null;
+	Button mBTN_statistiques = null;
 	
 	public void onCreate(Bundle savedInstanceState) {
 		  super.onCreate(savedInstanceState);
 		  setContentView(R.layout.activity_main);
 		  
-		  final Button gererTournoi = (Button) findViewById(R.id.gererTournoiButton);
-		  gererTournoi.setOnClickListener(new OnClickListener() {
+		  mBTN_gererTournoi = (Button) findViewById(R.id.BTN_gererTournoi);
+		  mBTN_gererTournoi.setOnClickListener(new OnClickListener() {
 					
 		  @Override
 		  public void onClick(View v) {
-			Intent intent = new Intent(MainActivity.this, GererTournoi.class);
-			startActivity(intent);
+			Intent to_GererTournoiActivity = new Intent(MainActivity.this, GererTournoi.class);
+			startActivity(to_GererTournoiActivity);
 			}
 		});
 		  
 		  
-		  final Button gererJoueur = (Button) findViewById(R.id.gererJoueurButton);
-		  gererJoueur.setOnClickListener(new OnClickListener() {
+		  mBTN_gererJoueur = (Button) findViewById(R.id.BTN_gererJoueur);
+		  mBTN_gererJoueur.setOnClickListener(new OnClickListener() {
 					
 		  @Override
 		  public void onClick(View v) {
-			Intent intent = new Intent(MainActivity.this, GererJoueur.class);
-			startActivity(intent);
+			Intent to_GererJoueurActivity = new Intent(MainActivity.this, GererJoueur.class);
+			startActivity(to_GererJoueurActivity);
 			}
 		});
 		  
-		  final Button statistique = (Button) findViewById(R.id.statistiqueButton);
-		  statistique.setOnClickListener(new OnClickListener() {
+		  mBTN_statistiques = (Button) findViewById(R.id.BTN_statistiques);
+		  mBTN_statistiques.setOnClickListener(new OnClickListener() {
 					
 		  @Override
 		  public void onClick(View v) {
-			Intent intent = new Intent(MainActivity.this, Statistique.class);
-			startActivity(intent);
+			Intent to_StatistiquesActivity = new Intent(MainActivity.this, Statistique.class);
+			startActivity(to_StatistiquesActivity);
 			}
 		}); 
 		  
