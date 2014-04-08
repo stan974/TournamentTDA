@@ -3,10 +3,9 @@ package com.projetTDA.joueur;
 
 
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
@@ -18,6 +17,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
+import com.projetTDA.MainActivity;
 import com.projetTDA.metier.Joueur;
 import com.projetTDA.tournamentbuilder.R;
 
@@ -27,9 +27,9 @@ public class CreerJoueur extends ActionBarActivity {
 	private Button buttonEnvoyer;
 	private String PSEUDOFile = "pseudo.txt";
 	private String AVATARFile = "avatar.txt";
-
+	
 	Joueur j = new Joueur();
-
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -79,38 +79,42 @@ public class CreerJoueur extends ActionBarActivity {
 
 								erreurBoolean = true;
 								//écrit le joueur dans un fichier
-								FileOutputStream output = null;        
-								FileOutputStream output2 = null;
-								try {
-//									deleteFile(PSEUDOFile); //à décocher quand on a besoin de supprimer le fichier local
-									output = openFileOutput(PSEUDOFile, MODE_APPEND);
-									output.write(j.getPseudo().getBytes()); //écrit int
-									output.write("\n".getBytes());
-									if(output != null)
-										output.close();
-								} catch (FileNotFoundException e) {
-									e.printStackTrace();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
 								
-
-								try {
-									deleteFile(AVATARFile); //à décocher quand on a besoin de supprimer le fichier local
-									output2 = openFileOutput(AVATARFile, MODE_APPEND);
-									output2.write("R.drawable.avatar".getBytes());
-									output2.write(j.getAvatar().getBytes());
-//									output2.write("\n".getBytes());
-									System.out.println(j.getAvatar());
-
-									//output.write("R.drawable.avatar3 \r\n R.drawable.avatar6".getBytes());
-									if(output2 != null)
-										output2.close();
-								} catch (FileNotFoundException e) {
-									e.printStackTrace();
-								} catch (IOException e) {
-									e.printStackTrace();
-								}
+								
+								
+//								//écrire dans la base à faire
+//								FileOutputStream output = null;        
+//								FileOutputStream output2 = null;
+//								try {
+////									deleteFile(PSEUDOFile); //à décocher quand on a besoin de supprimer le fichier local
+//									output = openFileOutput(PSEUDOFile, MODE_APPEND);
+//									output.write(j.getPseudo().getBytes()); //écrit int
+//									output.write("*".getBytes());
+//									if(output != null)
+//										output.close();
+//								} catch (FileNotFoundException e) {
+//									e.printStackTrace();
+//								} catch (IOException e) {
+//									e.printStackTrace();
+//								}
+//								
+//
+//								try {
+////									deleteFile(AVATARFile); //à décocher quand on a besoin de supprimer le fichier local
+//									output2 = openFileOutput(AVATARFile, MODE_APPEND);
+//									output2.write("R.drawable.avatar".getBytes());
+//									output2.write(j.getAvatar().getBytes());
+//									output2.write("*".getBytes());
+//									System.out.println(j.getAvatar());
+//
+//									//output.write("R.drawable.avatar3 \r\n R.drawable.avatar6".getBytes());
+//									if(output2 != null)
+//										output2.close();
+//								} catch (FileNotFoundException e) {
+//									e.printStackTrace();
+//								} catch (IOException e) {
+//									e.printStackTrace();
+//								}
 								Toast.makeText(CreerJoueur.this,"le joueur " + j.getPseudo() + " a bien été créé ! ", Toast.LENGTH_LONG).show();				        
 								finish();
 							}

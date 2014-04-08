@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import com.projetTDA.metier.Joueur;
+
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,45 +15,117 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListerJoueurs extends ListActivity {
-	static final ArrayList<String> JOUEUR = 
-			new ArrayList<String>(Arrays.asList("R.drawable.avatar1","R.drawable.avatar2","R.drawable.avatar3","R.drawable.avatar4","R.drawable.avatar5","R.drawable.avatar6","R.drawable.avatar7","R.drawable.avatar8","R.drawable.avatar9","R.drawable.avatar10"));
-	String AVATARFile = "avatar.txt";
-	ArrayList<String> avatarList = new ArrayList<String>();
-	//	Integer[] mThumbIds = {
-	//            R.drawable.avatar1, R.drawable.avatar2,
-	//            R.drawable.avatar3, R.drawable.avatar4,
-	//            R.drawable.avatar5, R.drawable.avatar6,
-	//            R.drawable.avatar7, R.drawable.avatar8,
-	//            R.drawable.avatar9, R.drawable.avatar10,
-	//            R.drawable.avatar1, R.drawable.avatar2,
-	//            R.drawable.avatar3, R.drawable.avatar4,
-	//            R.drawable.avatar5, R.drawable.avatar6,
-	//            R.drawable.avatar7, R.drawable.avatar8,
-	//            R.drawable.avatar9, R.drawable.avatar10
-	//    };
 
+	private ArrayList<Joueur> listeJoueur = new ArrayList<Joueur>();
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		int value;
+		
+		
+		Joueur ronaldo = new Joueur(1,"ronaldo","0");
+		Joueur cafe = new Joueur(2,"cafe","7");
+		
+		Joueur zidane = new Joueur(3,"Zidane","6");
+		Joueur petit = new Joueur(4,"petit","4");
+		
+		Joueur beckham = new Joueur(5,"beckham","5");
+		Joueur owell = new Joueur(6,"owell","8");
+		
+		Joueur casillas = new Joueur(7,"casillas","2");
+		Joueur raoul = new Joueur(8,"raoul","3");
+
+		listeJoueur.add(ronaldo);
+		listeJoueur.add(cafe);
+		listeJoueur.add(zidane);
+		listeJoueur.add(petit);
+		listeJoueur.add(beckham);
+		listeJoueur.add(owell);
+		listeJoueur.add(casillas);
+		listeJoueur.add(raoul);
+		
 
 
-		try {
-			FileInputStream input = openFileInput(AVATARFile);
-			StringBuffer lu = new StringBuffer();
+		//boucle lecture avatar
+//		int value;
+//		try {
+//			FileInputStream input = openFileInput(AVATARFile);
+//			StringBuffer lu = new StringBuffer();
+//
+//			while((value = input.read()) != -1) {
+//				if (value == '*' ){
+//					avatarList.add(lu.toString());
+//					System.out.println("lu="+lu.toString());
+//					lu.delete(0,lu.length()); 
+//					
+//				}
+//				else{
+//				lu.append((char)value);
+//				}
+//				
+//			}
+//			if(input != null)
+//				input.close();
+//
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		
+//		//boucle lecture pseudo
+//		int value2;
+//		int compteur=0;
+//		try {
+//			FileInputStream input2 = openFileInput(PSEUDOFile);
+//			StringBuffer lu = new StringBuffer();
+//
+//			while((value2 = input2.read()) != -1) {
+//				if (value2 == '*' ){
+//
+//					pseudoList.add(lu.toString());
+//					System.out.println("tab="+pseudoList.get(compteur));
+//					System.out.println("lu2="+lu.toString());
+//					lu.delete(0,lu.length()); 
+//				}
+//				else{
+//				lu.append((char)value2);
+//				}
+//			}
+//
+//			if(input2 != null)
+//				input2.close();
+//
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
+//		setListAdapter(new JoueurArrayAdapterPseudo(this, pseudoList));
+		
+//		à garder
+//		setListAdapter(new JoueurArrayAdapter(this, avatarList,pseudoList));
+		
+		
+		setListAdapter(new JoueurArrayAdapter(this, listeJoueur));
 
-			while((value = input.read()) != -1) {
-				// On écrit dans le fichier le caractère lu
-				lu.append((char)value);
-			}
-		avatarList.add(lu.toString());
-			System.out.println("lu="+lu.toString());
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		setListAdapter(new JoueurArrayAdapter(this, avatarList));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 //		try{
 //			// Création du flux bufférisé sur un FileReader, immédiatement suivi par un 
