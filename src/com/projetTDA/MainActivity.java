@@ -28,10 +28,14 @@ public class MainActivity extends ActionBarActivity {
 	Button mBTN_gererTournoi = null;
 	Button mBTN_gererJoueur  = null;
 	Button mBTN_statistiques = null;
-	
+//	String PSEUDOFile = "pseudo.txt";
+//	String AVATARFile = "avatar.txt";
 	public void onCreate(Bundle savedInstanceState) {
 		  super.onCreate(savedInstanceState);
 		  setContentView(R.layout.activity_main);
+		  
+		 // deleteFile(PSEUDOFile);
+		 // deleteFile(AVATARFile);
 		  
 		  mBTN_gererTournoi = (Button) findViewById(R.id.BTN_gererTournoi);
 		  mBTN_gererTournoi.setOnClickListener(new OnClickListener() {

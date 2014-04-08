@@ -25,7 +25,8 @@ public class CreerJoueur extends ActionBarActivity {
 
 	private EditText editText;
 	private Button buttonEnvoyer;
-	private String PSEUDO = "pseudo.txt";
+	private String PSEUDOFile = "pseudo.txt";
+	private String AVATARFile = "avatar.txt";
 
 	Joueur j = new Joueur();
 
@@ -41,11 +42,10 @@ public class CreerJoueur extends ActionBarActivity {
 
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				position = position+1;
 				Toast.makeText(CreerJoueur.this, "l'avatar " + position + " est selectionné", Toast.LENGTH_SHORT).show();
+				position=position+1;
 				j.setAvatar(String.valueOf(position)); //assigne la position de l'avatar à la variable avatar
-				position = position-1;
-
+				position=position-1;
 			}
 		});
 
@@ -80,24 +80,37 @@ public class CreerJoueur extends ActionBarActivity {
 								erreurBoolean = true;
 								//écrit le joueur dans un fichier
 								FileOutputStream output = null;        
-
+								FileOutputStream output2 = null;
 								try {
-									//deleteFile(PSEUDO); //à décocher quand on a besoin de supprimer le fichier local
-									output = openFileOutput(PSEUDO, MODE_APPEND);
+//									deleteFile(PSEUDOFile); //à décocher quand on a besoin de supprimer le fichier local
+									output = openFileOutput(PSEUDOFile, MODE_APPEND);
 									output.write(j.getPseudo().getBytes()); //écrit int
-									output.write(",".getBytes());
-									output.write(j.getAvatar().getBytes());
-									output.write("\r\n".getBytes());
-
+									output.write("\n".getBytes());
 									if(output != null)
-
 										output.close();
 								} catch (FileNotFoundException e) {
 									e.printStackTrace();
 								} catch (IOException e) {
 									e.printStackTrace();
 								}
+								
 
+								try {
+									deleteFile(AVATARFile); //à décocher quand on a besoin de supprimer le fichier local
+									output2 = openFileOutput(AVATARFile, MODE_APPEND);
+									output2.write("R.drawable.avatar".getBytes());
+									output2.write(j.getAvatar().getBytes());
+//									output2.write("\n".getBytes());
+									System.out.println(j.getAvatar());
+
+									//output.write("R.drawable.avatar3 \r\n R.drawable.avatar6".getBytes());
+									if(output2 != null)
+										output2.close();
+								} catch (FileNotFoundException e) {
+									e.printStackTrace();
+								} catch (IOException e) {
+									e.printStackTrace();
+								}
 								Toast.makeText(CreerJoueur.this,"le joueur " + j.getPseudo() + " a bien été créé ! ", Toast.LENGTH_LONG).show();				        
 								finish();
 							}
