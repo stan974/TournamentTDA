@@ -42,19 +42,17 @@ public class JoueurArrayAdapter extends ArrayAdapter<Joueur> {
 			System.out.println("pseudo="+j.getPseudo());
 			System.out.println("	avatar="+j.getAvatar());
 		}
-		//boucle lecture pseudo
-		int compteur=0;
-		for (Joueur j : listeDeJoueur) {
+		
+			Joueur j = listeDeJoueur.get(position);
 			textView.setText(j.getPseudo());
 			String avatar = "R.drawable.avatar"+j.getAvatar();
-			if (avatar.equals(JOUEURString.get(compteur))) {
-				imageView.setImageResource(JOUEURInteger.get(compteur));
+			for( int compteur=0;compteur<10;compteur++){
+				if (avatar.equals(JOUEURString.get(compteur))) {
+					imageView.setImageResource(JOUEURInteger.get(compteur));
+				}
 			}
-			else if (compteur < 12){
-				compteur+=1;
-			}
-		}
-
+			
+			
 		return rowView;
 
 	}

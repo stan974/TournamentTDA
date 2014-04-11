@@ -3,11 +3,12 @@ package com.projetTDA.joueur;
 
 
 
-import java.util.ArrayList;
+import java.io.IOException;
+import java.util.List;
 
-import android.content.Intent;
+import android.app.Activity;
+import android.database.SQLException;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -17,35 +18,43 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.projetTDA.MainActivity;
+import com.projetTDA.DataBaseHelper;
+import com.projetTDA.bdd.DataAccessLayer;
 import com.projetTDA.metier.Joueur;
 import com.projetTDA.tournamentbuilder.R;
 
-public class CreerJoueur extends ActionBarActivity {
+public class CreerJoueur extends Activity {
 
 	private EditText editText;
 	private Button buttonEnvoyer;
-	private String PSEUDOFile = "pseudo.txt";
-	private String AVATARFile = "avatar.txt";
 	
 	Joueur j = new Joueur();
-	
+	int bool=1;
+	//permet de simuler une activation ou désactivation d'icone
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.creer_joueur);
 		
+
 		ImageAdapter imageAdapter = new ImageAdapter(this);
 		
-		GridView gridview = (GridView) findViewById(R.id.avatarView);
+		final GridView gridview = (GridView) findViewById(R.id.avatarView);
 		gridview.setAdapter(imageAdapter);
-
+		
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Toast.makeText(CreerJoueur.this, "l'avatar " + position + " est selectionné", Toast.LENGTH_SHORT).show();
-				position=position+1;
+
+//				if (bool % 2 == 0 ){
+//					v.setBackgroundResource(R.drawable.bg_vide);
+//					bool+=1;
+//				}
+//				else{
+					v.setBackgroundResource(R.drawable.bg);
+					bool+=1;
+//				}
+				
 				j.setAvatar(String.valueOf(position)); //assigne la position de l'avatar à la variable avatar
-				position=position-1;
 			}
 		});
 
@@ -60,6 +69,7 @@ public class CreerJoueur extends ActionBarActivity {
 				new OnClickListener() {
 					@Override
 					public void onClick(View v) {
+						
 						//récupère le texte écrit dans l'EditText
 						String pseudo = editText.getText().toString();
 						Boolean erreurBoolean = false;
@@ -78,44 +88,34 @@ public class CreerJoueur extends ActionBarActivity {
 							else {
 
 								erreurBoolean = true;
-								//écrit le joueur dans un fichier
+								  DataBaseHelper myDB = new DataBaseHelper(v.getContext());
+								  
+								  try {
+									  
+									  myDB.createDataBase();
+									  
+								  } catch (IOException ioe) {
+									  
+									  throw new Error("Enable to create database");
+									  
+								  }
+								  
+								  try {
+									  
+									  myDB.openDataBase();
+								  } catch (SQLException sqle) {
+									  
+									  throw sqle;
+									  
+								  }
+								  
+								DataAccessLayer myDAL = new DataAccessLayer(v.getContext());
+								myDAL.ajouterJoueurBDD(j);
+								List<Joueur> listeJoueur = myDAL.getListeJoueurs();
+								System.out.println(listeJoueur.get(0));
+								System.out.println(listeJoueur.get(1));
+								Toast.makeText(v.getContext(),"le joueur " + j.getPseudo() + " a bien été créé ! ", Toast.LENGTH_LONG).show();
 								
-								
-								
-//								//écrire dans la base à faire
-//								FileOutputStream output = null;        
-//								FileOutputStream output2 = null;
-//								try {
-////									deleteFile(PSEUDOFile); //à décocher quand on a besoin de supprimer le fichier local
-//									output = openFileOutput(PSEUDOFile, MODE_APPEND);
-//									output.write(j.getPseudo().getBytes()); //écrit int
-//									output.write("*".getBytes());
-//									if(output != null)
-//										output.close();
-//								} catch (FileNotFoundException e) {
-//									e.printStackTrace();
-//								} catch (IOException e) {
-//									e.printStackTrace();
-//								}
-//								
-//
-//								try {
-////									deleteFile(AVATARFile); //à décocher quand on a besoin de supprimer le fichier local
-//									output2 = openFileOutput(AVATARFile, MODE_APPEND);
-//									output2.write("R.drawable.avatar".getBytes());
-//									output2.write(j.getAvatar().getBytes());
-//									output2.write("*".getBytes());
-//									System.out.println(j.getAvatar());
-//
-//									//output.write("R.drawable.avatar3 \r\n R.drawable.avatar6".getBytes());
-//									if(output2 != null)
-//										output2.close();
-//								} catch (FileNotFoundException e) {
-//									e.printStackTrace();
-//								} catch (IOException e) {
-//									e.printStackTrace();
-//								}
-								Toast.makeText(CreerJoueur.this,"le joueur " + j.getPseudo() + " a bien été créé ! ", Toast.LENGTH_LONG).show();				        
 								finish();
 							}
 						}       

@@ -1,10 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
+    android:background="#efebef">
+ 	<!-- android:id permet d'attribuer un id à l'élement -->
+ 	    <!-- android:layout_width définit le remplissage de l'élement en largeur -->
+ 	    <!-- android:layout_height définit le remplissage de l'élement en hauteur -->
+ 	    <!-- fill_parent : prend toute la place en largeur ou hauteur -->
+ 	    <!-- wrap_content : prend juste la place nécessaire -->
+    <TextView android:id="@+id/TextViewPseudo"
+    	android:layout_width="fill_parent"
+    	android:layout_height="wrap_content"
+    	android:text="@string/pseudo"
+    	/>
+    	
+   	 <LinearLayout
+   	     android:layout_width="fill_parent"
+   	     android:layout_height="wrap_content"
+   	     android:orientation="horizontal"
+   	     android:paddingBottom="15dp" >
+        
+   	     <!-- android:layout_gravity précise la position de lélement centrer_horizontal,etc... -->
+   	     <!-- android:hint permet de configurer le texte par défaut dans le champ de saisie -->
 
-     
+   	     <EditText
+   	         android:id="@+id/EditTextPseudo"
+   	         android:layout_width="wrap_content"
+   	         android:layout_height="wrap_content"
+   	         android:ems="10"
+   	         android:hint="@string/pseudoHint" >
+
+   	     </EditText>
+	    
+		<!-- android:text permet de configurer le texte qui sera affiché -->
+
+	    <Button android:id="@+id/ButtonEnvoyer"
+	    	android:layout_width="wrap_content"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/boutonEnvoyer"
+	    	/>
+   	 <!--  grid view pour le choix des avatars-->
+	
+			
+	</LinearLayout>
+   	 
+   	  <GridView
+   	      android:id="@+id/avatarView"
+   	      android:layout_width="wrap_content"
+   	      android:layout_height="298dp"
+   	      android:background="#e4dddd"
+   	      android:columnWidth="90dp"
+   	      android:gravity="center"
+   	      android:horizontalSpacing="10dp"
+   	      android:numColumns="3"
+   	      android:stretchMode="columnWidth"
+   	      android:verticalSpacing="10dp" />
+
+   	
 </LinearLayout>
