@@ -1,25 +1,22 @@
 package com.projetTDA;
 
-import android.content.Intent;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
+import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.projetTDA.bdd.DataAccessLayer;
 import com.projetTDA.joueur.GererJoueur;
-import com.projetTDA.metier.Equipe;
 import com.projetTDA.metier.Joueur;
-import com.projetTDA.metier.Match;
-import com.projetTDA.metier.Tournoi;
 import com.projetTDA.statistique.Statistique;
-import com.projetTDA.tournamentbuilder.R;
 import com.projetTDA.tournoi.GererTournoi;
 
 
@@ -34,6 +31,48 @@ public class MainActivity extends ActionBarActivity {
 		  super.onCreate(savedInstanceState);
 		  setContentView(R.layout.activity_main);
 		  
+		  
+		  DataBaseHelper myDB;
+		  myDB = new DataBaseHelper(this);
+		  
+		  try {
+			  
+			  myDB.createDataBase();
+			  
+		  } catch (IOException ioe) {
+			  
+			  throw new Error("Enable to create database");
+			  
+		  }
+		  
+		  try {
+			  
+			  myDB.openDataBase();
+		  } catch (SQLException sqle) {
+			  
+			  throw sqle;
+			  
+		  }
+		  
+		  DataAccessLayer myDAL = new DataAccessLayer(this);
+		  
+//		  Joueur j1 = new Joueur(0,"J1","4");
+//		  Joueur j2 = new Joueur(0,"J2","5");
+//		  Joueur j3 = new Joueur(0,"J3","3");
+//		  Joueur j4 = new Joueur(0,"J4","8");
+//		  Joueur j5 = new Joueur(0,"J5","7");
+//		  
+//		  myDAL.ajouterJoueurBDD(j1);
+//		  myDAL.ajouterJoueurBDD(j2);
+//		  myDAL.ajouterJoueurBDD(j3);
+//		  myDAL.ajouterJoueurBDD(j4);
+//		  myDAL.ajouterJoueurBDD(j5);
+		  
+		  List<Joueur> joueurs = new ArrayList<Joueur>(myDAL.getListeJoueurs());
+		  
+		  String tmp = "";
+		  for(Joueur j : joueurs) {tmp += j.getId_joueur() + "|" + j.getPseudo() + "|" + j.getAvatar() + "\n"; }		  
+		  Toast.makeText(this, tmp, Toast.LENGTH_LONG).show();
 		 // deleteFile(PSEUDOFile);
 		 // deleteFile(AVATARFile);
 		  

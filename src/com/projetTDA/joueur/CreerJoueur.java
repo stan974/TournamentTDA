@@ -3,12 +3,8 @@ package com.projetTDA.joueur;
 
 
 
-import java.io.IOException;
-import java.util.List;
-
-import android.app.Activity;
-import android.database.SQLException;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -18,12 +14,11 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
-import com.projetTDA.DataBaseHelper;
+import com.projetTDA.R;
 import com.projetTDA.bdd.DataAccessLayer;
 import com.projetTDA.metier.Joueur;
-import com.projetTDA.tournamentbuilder.R;
 
-public class CreerJoueur extends Activity {
+public class CreerJoueur extends ActionBarActivity {
 
 	private EditText editText;
 	private Button buttonEnvoyer;
@@ -53,8 +48,9 @@ public class CreerJoueur extends Activity {
 					v.setBackgroundResource(R.drawable.bg);
 					bool+=1;
 //				}
-				
+				position=position+1;
 				j.setAvatar(String.valueOf(position)); //assigne la position de l'avatar à la variable avatar
+				position=position-1;
 			}
 		});
 
@@ -86,34 +82,8 @@ public class CreerJoueur extends Activity {
 								Toast.makeText(CreerJoueur.this,"Veuillez saisir un pseudo", Toast.LENGTH_LONG).show();	
 							}
 							else {
-
-								erreurBoolean = true;
-								  DataBaseHelper myDB = new DataBaseHelper(v.getContext());
-								  
-								  try {
-									  
-									  myDB.createDataBase();
-									  
-								  } catch (IOException ioe) {
-									  
-									  throw new Error("Enable to create database");
-									  
-								  }
-								  
-								  try {
-									  
-									  myDB.openDataBase();
-								  } catch (SQLException sqle) {
-									  
-									  throw sqle;
-									  
-								  }
-								  
 								DataAccessLayer myDAL = new DataAccessLayer(v.getContext());
 								myDAL.ajouterJoueurBDD(j);
-								List<Joueur> listeJoueur = myDAL.getListeJoueurs();
-								System.out.println(listeJoueur.get(0));
-								System.out.println(listeJoueur.get(1));
 								Toast.makeText(v.getContext(),"le joueur " + j.getPseudo() + " a bien été créé ! ", Toast.LENGTH_LONG).show();
 								
 								finish();

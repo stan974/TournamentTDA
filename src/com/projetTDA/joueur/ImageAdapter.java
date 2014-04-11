@@ -1,14 +1,13 @@
 package com.projetTDA.joueur;
 
-import com.projetTDA.tournamentbuilder.R;
-import com.projetTDA.tournamentbuilder.R.drawable;
-
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.projetTDA.R;
 
 	public class ImageAdapter extends BaseAdapter {
 	    private Context mContext;
@@ -47,11 +46,6 @@ import android.widget.ImageView;
 
 	    // reference à notre base image
 	    private Integer[] mThumbIds = {
-	            R.drawable.avatar1, R.drawable.avatar2,
-	            R.drawable.avatar3, R.drawable.avatar4,
-	            R.drawable.avatar5, R.drawable.avatar6,
-	            R.drawable.avatar7, R.drawable.avatar8,
-	            R.drawable.avatar9, R.drawable.avatar10,
 	            R.drawable.avatar1, R.drawable.avatar2,
 	            R.drawable.avatar3, R.drawable.avatar4,
 	            R.drawable.avatar5, R.drawable.avatar6,

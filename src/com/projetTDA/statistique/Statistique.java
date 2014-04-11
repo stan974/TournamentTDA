@@ -1,10 +1,9 @@
 package com.projetTDA.statistique;
 
-import com.projetTDA.tournamentbuilder.R;
-import com.projetTDA.tournamentbuilder.R.layout;
-
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+
+import com.projetTDA.R;
 
 public class Statistique extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {

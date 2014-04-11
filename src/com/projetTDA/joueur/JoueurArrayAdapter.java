@@ -1,8 +1,5 @@
 package com.projetTDA.joueur;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -14,8 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.projetTDA.R;
 import com.projetTDA.metier.Joueur;
-import com.projetTDA.tournamentbuilder.R;
 
 public class JoueurArrayAdapter extends ArrayAdapter<Joueur> {
 	private final Context context;
@@ -38,12 +35,9 @@ public class JoueurArrayAdapter extends ArrayAdapter<Joueur> {
 		TextView textView = (TextView) rowView.findViewById(R.id.label);
 		ImageView imageView = (ImageView) rowView.findViewById(R.id.logo);
 
-		for (Joueur j : listeDeJoueur){
+			Joueur j = listeDeJoueur.get(position);
 			System.out.println("pseudo="+j.getPseudo());
 			System.out.println("	avatar="+j.getAvatar());
-		}
-		
-			Joueur j = listeDeJoueur.get(position);
 			textView.setText(j.getPseudo());
 			String avatar = "R.drawable.avatar"+j.getAvatar();
 			for( int compteur=0;compteur<10;compteur++){
