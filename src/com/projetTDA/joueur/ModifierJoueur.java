@@ -20,9 +20,7 @@ public class ModifierJoueur extends ActionBarActivity {
 
 	private EditText editText;
 	private Button buttonEnvoyer;
-	String avatar="vide";
-	String pseudo="vide";
-	String idJoueur="vide";
+
 	
 	Joueur j = new Joueur();
 	
@@ -30,17 +28,21 @@ public class ModifierJoueur extends ActionBarActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.modifier_joueur);
-		Intent intent = getIntent();
-		int bool;
+		Intent intent2 = getIntent();
+
 		//transmet par défaut les valeurs d'avatar et de pseudo existant
-		j.setPseudo(intent.getStringExtra(pseudo));
-		j.setAvatar(intent.getStringExtra(avatar));
-		System.out.println("PseudoActivitéPrécédente : "+intent.getStringExtra(pseudo));
-		System.out.println("AvatarActivitéPrécédente : "+intent.getStringExtra(avatar));
-//		System.out.println("idJoueurActivitéPrécédente : "+intent.getStringExtra(idJoueur));
-//		int identifiant = Integer.parseInt(intent.getStringExtra(idJoueur));
+//		pseudo = intent.getStringExtra(pseudo);
+//		j.setPseudo(pseudo);
+		
+//		avatar = intent.getStringExtra(avatar);
+		System.out.println(	"idJoueurActivitéPrécédente : "+intent2.getStringExtra("idJoueur"));
+		System.out.println("AvatarActivitéPrécédente : "+intent2.getStringExtra("avatar"));
+		System.out.println("PseudoActivitéPrécédente : "+intent2.getStringExtra("pseudo"));
+		
+		j.setAvatar(intent2.getStringExtra("avatar"));
+		int identifiant = Integer.parseInt(intent2.getStringExtra("idJoueur"));
 //		System.out.println("identifiant="+identifiant);
-//		j.setId_joueur(identifiant);
+		j.setId_joueur(identifiant);
 		System.out.println("pseudoModifié3="+j.getPseudo());
 		System.out.println("avatarModifié3="+j.getAvatar());
 		System.out.println("iModifié3="+j.getId_joueur());
@@ -54,14 +56,16 @@ public class ModifierJoueur extends ActionBarActivity {
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				v.setBackgroundResource(R.drawable.bg);
+				position=position+1;
 				j.setAvatar(String.valueOf(position)); //assigne la position de l'avatar à la variable avatar
+				position=position-1;
 				System.out.println("avatarModifié1="+j.getAvatar());
 			}
 		});
 
 		//récupération de l'EditText grâce à son ID
 		editText = (EditText) findViewById(R.id.EditTextPseudo);
-		editText.setText(intent.getStringExtra(pseudo));
+		editText.setText(intent2.getStringExtra("pseudo"));
 
 		//récupération du bouton grâce à son ID
 		buttonEnvoyer = (Button) findViewById(R.id.ButtonEnvoyer);
@@ -98,6 +102,9 @@ public class ModifierJoueur extends ActionBarActivity {
 								System.out.println("idModifié="+j.getId_joueur());
 								Toast.makeText(ModifierJoueur.this,"le joueur " + j.getPseudo() + " a bien été modifié ! ", Toast.LENGTH_LONG).show();				        
 								finish();
+								//recharge l'activité lister Joueur
+								Intent acti = new Intent(ModifierJoueur.this, ListerJoueurs.class);
+								startActivity(acti);
 							}
 						}       
 					}     		

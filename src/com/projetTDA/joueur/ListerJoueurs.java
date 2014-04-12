@@ -15,9 +15,7 @@ import com.projetTDA.metier.Joueur;
 public class ListerJoueurs extends ListActivity {
 
 	private ArrayList<Joueur> listeJoueur = new ArrayList<Joueur>();
-	String pseudo = "";
-	String avatar = "";
-	String idJoueur;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,7 +38,9 @@ public class ListerJoueurs extends ListActivity {
 		System.out.println("avatarListé="+avatar2);
 		System.out.println("idListé="+id2);
 		Intent to_ModifierJoueurActivity = new Intent(ListerJoueurs.this, ModifierJoueur.class);
-
+		String pseudo="pseudo";
+		String avatar="avatar";
+		String idJoueur="idJoueur";
 		to_ModifierJoueurActivity.putExtra(pseudo, pseudo2);
 		to_ModifierJoueurActivity.putExtra(avatar, avatar2);
 		to_ModifierJoueurActivity.putExtra(idJoueur, id2);
