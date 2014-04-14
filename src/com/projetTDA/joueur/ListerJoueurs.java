@@ -22,7 +22,7 @@ public class ListerJoueurs extends ListActivity {
 		
 		DataAccessLayer myDAL = new DataAccessLayer(ListerJoueurs.this);
 		listeJoueur = myDAL.getListeJoueurs();
-		System.out.println("liste="+listeJoueur);
+//		System.out.println("liste="+listeJoueur);
 		setListAdapter(new JoueurArrayAdapter(this, listeJoueur));
 
 }
@@ -34,9 +34,9 @@ public class ListerJoueurs extends ListActivity {
 		String avatar2 = j.getAvatar();
 		String pseudo2 = j.getPseudo();
 		String id2 = String.valueOf(j.getId_joueur()); 
-		System.out.println("pseudoListé="+pseudo2);
-		System.out.println("avatarListé="+avatar2);
-		System.out.println("idListé="+id2);
+//		System.out.println("pseudoListé="+pseudo2);
+//		System.out.println("avatarListé="+avatar2);
+//		System.out.println("idListé="+id2);
 		Intent to_ModifierJoueurActivity = new Intent(ListerJoueurs.this, ModifierJoueur.class);
 		String pseudo="pseudo";
 		String avatar="avatar";
@@ -46,6 +46,7 @@ public class ListerJoueurs extends ListActivity {
 		to_ModifierJoueurActivity.putExtra(idJoueur, id2);
 		startActivity(to_ModifierJoueurActivity);
 	}
+	
 
 }
 

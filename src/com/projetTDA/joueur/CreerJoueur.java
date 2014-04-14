@@ -3,11 +3,16 @@ package com.projetTDA.joueur;
 
 
 
+import android.annotation.TargetApi;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.ContextMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +23,7 @@ import com.projetTDA.R;
 import com.projetTDA.bdd.DataAccessLayer;
 import com.projetTDA.metier.Joueur;
 
+@TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class CreerJoueur extends ActionBarActivity {
 
 	private EditText editText;
@@ -26,6 +32,9 @@ public class CreerJoueur extends ActionBarActivity {
 	Joueur j = new Joueur();
 	int bool=1;
 	//permet de simuler une activation ou désactivation d'icone
+
+	
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -36,18 +45,9 @@ public class CreerJoueur extends ActionBarActivity {
 		
 		final GridView gridview = (GridView) findViewById(R.id.avatarView);
 		gridview.setAdapter(imageAdapter);
-		
+		gridview.setDrawSelectorOnTop(false);
 		gridview.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
-//				if (bool % 2 == 0 ){
-//					v.setBackgroundResource(R.drawable.bg_vide);
-//					bool+=1;
-//				}
-//				else{
-					v.setBackgroundResource(R.drawable.bg);
-					bool+=1;
-//				}
 				position=position+1;
 				j.setAvatar(String.valueOf(position)); //assigne la position de l'avatar à la variable avatar
 				position=position-1;

@@ -2,5 +2,7 @@
     <resources>
         <color name="couleurMessage">#ffa800</color>
         <color name="black_color">#000</color>
+        <color name="background_avatar">#efebef</color>
+        <color name="orange">#f98905</color>
     </resources>
 

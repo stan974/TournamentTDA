@@ -36,6 +36,7 @@ import com.projetTDA.R;
 	            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
 	            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 	            imageView.setPadding(8, 8, 8, 8);
+	            
 	        } else {
 	            imageView = (ImageView) convertView;
 	        }
