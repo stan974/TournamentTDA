@@ -19,7 +19,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		/* -------- */
 	
 	private static String DB_PATH;
-	private static String DB_NAME = "tournament.db";
+	private static String DB_NAME = "tournament_builder.db";
 	private SQLiteDatabase myDataBase;
 	private final Context myContext;
 	
@@ -71,12 +71,14 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public static final String TOURNOI_COL_NOM = "nom_tournoi";
 	public static final String TOURNOI_COL_SPORT = "libelle_sport";
 	public static final String TOURNOI_COL_DATE = "date_creation";
+	public static final String TOURNOI_COL_CHAMPIONNAT = "is_championnat";
 	public static final String CREATE_TABLE_TOURNOI = "CREATE TABLE IF NOT EXISTS "
 			+ TABLE_TOURNOI
 			+ "(" + TOURNOI_COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
 			+ TOURNOI_COL_NOM + " VARCHAR(30) NOT NULL, "
 			+ TOURNOI_COL_SPORT + " VARCHAR(30) NOT NULL, "
-			+ TOURNOI_COL_DATE + " DATE NOT NULL);";
+			+ TOURNOI_COL_DATE + " VARCHAR(30) NOT NULL, "
+			+ TOURNOI_COL_CHAMPIONNAT + " INTEGER NOT NULL);";
 	
 		/* ----- */
 		/* MATCH */
@@ -88,13 +90,15 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 	public static final String MATCH_COL_ID_EQUIPE_2 = "id_equipe_2";
 	public static final String MATCH_COL_SCORE_EQUIPE_1 = "score_equipe_1";
 	public static final String MATCH_COL_SCORE_EQUIPE_2 = "score_equipe_2";
+	public static final String MATCH_COL_RANG = "rang";
 	public static final String CREATE_TABLE_MATCH = "CREATE TABLE IF NOT EXISTS "
 			+ TABLE_MATCH
 			+ "(" + MATCH_COL_ID_TOURNOI + " INTEGER NOT NULL, "
 			+ MATCH_COL_ID_EQUIPE_1 + " INTEGER NOT NULL, "
 			+ MATCH_COL_ID_EQUIPE_2 + " INTEGER NOT NULL, "
-			+ MATCH_COL_SCORE_EQUIPE_1 + " INTEGER NOT NULL, "
-			+ MATCH_COL_SCORE_EQUIPE_2 + " INTEGER NOT NULL, "
+			+ MATCH_COL_SCORE_EQUIPE_1 + " INTEGER, "
+			+ MATCH_COL_SCORE_EQUIPE_2 + " INTEGER, "
+			+ MATCH_COL_RANG + " INTEGER, "
 			+ "PRIMARY KEY (" + MATCH_COL_ID_TOURNOI + "," + MATCH_COL_ID_EQUIPE_1 + "," + MATCH_COL_ID_EQUIPE_2 + "));";
 	
 		/* ---------- */
@@ -139,19 +143,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 		else {
 			
 			System.out.println("La base n'existe pas ! Création d'une nouvelle base.");
-			myDataBase = this.getReadableDatabase();
-			
-			/*try {
-				
-				copyDataBase();
-				
-			} catch (IOException e) {
-				
-				throw new Error("Error copying database.");
-				
-			}*/
+			myDataBase = this.getWritableDatabase();
+
 			if(myDataBase != null)
-			{
+			{				
 				myDataBase.execSQL(CREATE_TABLE_JOUEUR);
 				myDataBase.execSQL(CREATE_TABLE_EQUIPE);
 				myDataBase.execSQL(CREATE_TABLE_EQUIPE_JOUEUR);

@@ -6,21 +6,15 @@ public class Match {
 	private Equipe equipe2;
 	private Integer score1;
 	private Integer score2;
+	private int rang;
 	
-	public Match(Equipe equipe1, Equipe equipe2, Integer score1, Integer score2) {
+	public Match(Equipe equipe1, Equipe equipe2, Integer score1, Integer score2, int rang) {
 		super();
 		this.equipe1 = equipe1;
 		this.equipe2 = equipe2;
 		this.score1 = score1;
 		this.score2 = score2;
-	}
-	
-	public Match(Equipe equipe1, Equipe equipe2) {
-		super();
-		this.equipe1 = equipe1;
-		this.equipe2 = equipe2;
-		this.score1 = 0;
-		this.score2 = 0;
+		this.rang = rang;
 	}
 
 	public Match() {
@@ -57,29 +51,34 @@ public class Match {
 
 	public void setScore2(Integer score2) {
 		this.score2 = score2;
-	}	
+	}
 	
+	public int getRang() {
+		return rang;
+	}
+
+	public void setRang(int rang) {
+		this.rang = rang;
+	}
+
 	@Override
 	public String toString() {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		//sb.append("|");
+		sb.append("(Rang : ").append(rang).append(")");
 		sb.append(this.equipe1);
 		sb.append("\n\t");
 		sb.append("Score : ");
 		sb.append(this.score1);
-		//sb.append("|");
 		sb.append("\n");
 		sb.append(this.equipe2);
 		sb.append("\n\t");
-		sb.append("Score : ");
 		//sb.append("|");
 		sb.append(this.score2);
 
 		
 		return sb.toString();	
 	}
-
+	
 }
-

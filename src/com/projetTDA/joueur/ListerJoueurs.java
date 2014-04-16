@@ -21,10 +21,13 @@ public class ListerJoueurs extends ListActivity {
 		super.onCreate(savedInstanceState);
 		
 		DataAccessLayer myDAL = new DataAccessLayer(ListerJoueurs.this);
+		try{
 		listeJoueur = myDAL.getListeJoueurs();
 //		System.out.println("liste="+listeJoueur);
 		setListAdapter(new JoueurArrayAdapter(this, listeJoueur));
-
+		}
+		catch(NullPointerException e){System.out.println("Liste vide");
+		}
 }
 
 
@@ -45,6 +48,7 @@ public class ListerJoueurs extends ListActivity {
 		to_ModifierJoueurActivity.putExtra(avatar, avatar2);
 		to_ModifierJoueurActivity.putExtra(idJoueur, id2);
 		startActivity(to_ModifierJoueurActivity);
+		finish();
 	}
 	
 

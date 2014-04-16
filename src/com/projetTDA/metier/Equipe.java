@@ -7,34 +7,33 @@ public class Equipe {
 
 	private int id_equipe;
 	private String nom_equipe;
-	private ArrayList<Joueur> liste_joueur;
+	private List<Joueur> liste_joueur;
 	
 	
-	public Equipe(int id_equipe, String nom_equipe, ArrayList<Joueur> liste_joueur) {
+	public Equipe(int id_equipe, String nom_equipe, List<Joueur> liste_joueur) {
 		super();
 		this.id_equipe = id_equipe;
 		this.nom_equipe = nom_equipe;
-		this.liste_joueur = liste_joueur;
+		if(liste_joueur != null)
+		{
+			this.liste_joueur = liste_joueur;
+		}
+		else
+		{
+			this.liste_joueur = new ArrayList<Joueur>();
+		}
 	}
-
-	public Equipe(int id_equipe, String nom_equipe) {
+	
+	public Equipe(Equipe copy) {
 		super();
-		this.id_equipe = id_equipe;
-		this.nom_equipe = nom_equipe;
-		this.liste_joueur = new ArrayList<Joueur>();
-	}
-
-	public ArrayList<Joueur> getListe_joueur() {
-		return liste_joueur;
-	}
-
-	public void setListe_joueur(ArrayList<Joueur> liste_joueur) {
-		this.liste_joueur = liste_joueur;
+		this.id_equipe = copy.id_equipe;
+		this.nom_equipe = copy.nom_equipe;
+		this.liste_joueur = new ArrayList<Joueur>(copy.liste_joueur);
 	}
 
 	public Equipe() {
 		super();
-		this.liste_joueur=new ArrayList<Joueur>();
+		this.liste_joueur = new ArrayList<Joueur>();
 	}
 
 
@@ -57,7 +56,16 @@ public class Equipe {
 		this.nom_equipe = nom_equipe;
 	}	
 	
-	
+	public List<Joueur> getListe_joueur() {
+		return liste_joueur;
+	}
+
+
+	public void setListe_joueur(List<Joueur> liste_joueur) {
+		this.liste_joueur = liste_joueur;
+	}
+
+
 	@Override
 	public String toString() {
 		
@@ -71,18 +79,9 @@ public class Equipe {
 		for (Joueur j : liste_joueur)			
 		{
 			sb.append("\n\t").append(j);
-			
 		}
 		
-		return sb.toString();
-		
-	}
-	
-	public void ajoutJoueur(Joueur newJoueur) {
-		liste_joueur.add(newJoueur);
-		System.out.println("Joueur " + newJoueur.getPseudo() + " ajouté avec succès à l'équipe : " + this.nom_equipe);
-	}
-	
-	
+		return sb.toString();		
+	}	
 	
 }

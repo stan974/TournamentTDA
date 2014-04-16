@@ -52,10 +52,12 @@
    	      android:background="#e4dddd"
    	      android:columnWidth="90dp"
    	      android:gravity="center"
+   	      android:listSelector="@color/orange"
+   	      android:focusableInTouchMode="false"
    	      android:horizontalSpacing="10dp"
    	      android:numColumns="3"
    	      android:stretchMode="columnWidth"
    	      android:verticalSpacing="10dp" />
 
-   	
+   
 </LinearLayout>

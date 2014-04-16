@@ -2,8 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="#efebef">
+    android:layout_height="fill_parent">
  	<!-- android:id permet d'attribuer un id à l'élement -->
  	    <!-- android:layout_width définit le remplissage de l'élement en largeur -->
  	    <!-- android:layout_height définit le remplissage de l'élement en hauteur -->
